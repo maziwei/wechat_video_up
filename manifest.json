@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "视频号发布助手",
+  "version": "2.9.0",
+  "description": "视频号发布助手：粘贴JSON导入，一键填内容+定时+发表；浮动面板一键读取关注者/视频播放与关注/评论/私信数据，并可同步到飞书多维表格",
+  "permissions": [
+    "storage",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://channels.weixin.qq.com/*",
+    "https://open.feishu.cn/*",
+    "https://open.larksuite.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "视频号发布助手"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://channels.weixin.qq.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}

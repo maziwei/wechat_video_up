@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  body { width: 330px; padding: 10px; font: 12px/1.45 -apple-system,"Microsoft YaHei","PingFang SC",sans-serif; margin:0; color:#222; }
+  h3 { margin: 0 0 8px; font-size: 13px; }
+  .row { margin-bottom: 6px; }
+  label { display:block; font-size:11px; color:#666; margin-bottom:3px; }
+  textarea { width:100%; height:110px; box-sizing:border-box; font-size:10.5px; font-family:Consolas,monospace; resize:vertical; }
+  .ipt { width:100%; box-sizing:border-box; font-size:11px; padding:3px 5px; border:1px solid #d5d5d5; border-radius:3px; }
+  .ipt:focus { outline:none; border-color:#07c160; }
+  button { padding:5px 10px; font-size:11px; border:1px solid #d5d5d5; background:#fff; border-radius:4px; cursor:pointer; }
+  button:hover { background:#f0f0f0; }
+  .primary { background:#07c160; border-color:#07c160; color:#fff; font-weight:600; }
+  .primary:hover { background:#06ad56; }
+  .btns { display:flex; gap:5px; flex-wrap:wrap; }
+  #info { margin-top:8px; padding:6px; background:#f7f7f7; border-radius:4px; font-size:11px; }
+  .ok { color:#07c160; } .err { color:#d93025; }
+  .tip { font-size:10px; color:#999; line-height:1.5; margin-top:6px; }
+  #roottip { margin-top:5px; word-break:break-all; }
+  #roottip.warn { color:#d93025; }
+  #ver { font-size:10px; color:#999; font-weight:400; margin-left:4px; }
+  .sep { border-top:1px dashed #e3e3e3; margin:10px 0 8px; }
+  .sub { font-size:11px; font-weight:600; color:#333; margin-bottom:6px; }
+  details { margin-top:6px; }
+  summary { font-size:10.5px; color:#576b95; cursor:pointer; }
+  details ol { margin:5px 0 0 16px; padding:0; font-size:10px; color:#888; line-height:1.65; }
+  details code { background:#f2f2f2; padding:0 2px; border-radius:2px; }
+  #fsInfo { margin-top:6px; font-size:10.5px; color:#888; word-break:break-all; white-space:pre-line; }
+</style>
+</head>
+<body>
+  <h3>视频号发布助手<span id="ver"></span></h3>
+
+  <div class="row">
+    <label>导入任务（粘贴 JSON）</label>
+    <textarea id="txt" placeholder='{"root":"D:\\素材","tasks":[{"title":"标题","tags":["话题1","话题2"],"time":"2026-10-16 07:08","acc":"账号名"}]}'></textarea>
+  </div>
+
+  <div class="btns">
+    <button class="primary" id="btnImport">导入并覆盖</button>
+  </div>
+
+  <div id="info">未导入任务</div>
+  <div id="roottip" class="tip">素材根目录：未设置</div>
+
+  <div class="sep"></div>
+
+  <div class="sub">飞书多维表格同步</div>
+  <div class="row">
+    <label>① 浏览量及留资信息表（复制浏览器地址栏整条）</label>
+    <input id="fsUrl" class="ipt" placeholder="https://xxx.feishu.cn/base/xxxx?table=tblxxxx">
+  </div>
+  <div class="row">
+    <label>② 粉丝数据表（同一份多维表格里的另一张子表）</label>
+    <input id="fsFanUrl" class="ipt" placeholder="https://xxx.feishu.cn/base/xxxx?table=tblxxxx">
+  </div>
+  <div class="row">
+    <label>App ID</label>
+    <input id="fsAppId" class="ipt" placeholder="cli_xxxxxxxxxxxx">
+  </div>
+  <div class="row">
+    <label>App Secret</label>
+    <input id="fsSecret" class="ipt" type="password" placeholder="应用凭证里的 App Secret">
+  </div>
+  <div class="btns">
+    <button class="primary" id="btnFsSave">保存配置</button>
+    <button id="btnFsTest">测试连接</button>
+  </div>
+  <div id="fsInfo">未配置</div>
+
+  <details>
+    <summary>怎么拿到 App ID / App Secret？</summary>
+    <ol>
+      <li>打开 <code>open.feishu.cn/app</code>，创建「企业自建应用」。</li>
+      <li>「权限管理」里加 <code>bitable:app</code>（多维表格的查看、编辑、管理）。</li>
+      <li>「版本管理与发布」创建版本并发布（企业管理员可自审）。</li>
+      <li>在多维表格右上角「···」→「更多」→「添加文档应用」，把这个应用加进去（这步最容易被漏掉）。</li>
+      <li>回「凭证与基础信息」复制 App ID / App Secret 填上面。</li>
+    </ol>
+  </details>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+#wxch-helper-panel {
+  position: fixed !important;
+  top: 80px;
+  right: 14px;
+  width: 258px;
+  z-index: 2147483647 !important;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 7px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+  font: 11.5px/1.45 -apple-system, "Microsoft YaHei", "PingFang SC", sans-serif;
+  color: #222;
+  user-select: none;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+#wxch-helper-panel .wxch-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  background: #f5f6f7;
+  border-bottom: 1px solid #e5e5e5;
+  border-radius: 7px 7px 0 0;
+  cursor: move;
+}
+
+#wxch-helper-panel .wxch-title {
+  font-weight: 600;
+  font-size: 11.5px;
+  flex: 1;
+}
+
+#wxch-helper-panel .wxch-idx {
+  font-size: 10.5px;
+  color: #666;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  padding: 0 6px;
+}
+
+#wxch-helper-panel .wxch-min {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  color: #888;
+  padding: 0 2px;
+}
+
+#wxch-helper-panel .wxch-body {
+  padding: 7px;
+}
+
+#wxch-helper-panel.wxch-collapsed .wxch-body {
+  display: none;
+}
+
+#wxch-helper-panel .wxch-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 3px;
+}
+
+#wxch-helper-panel .wxch-row label {
+  flex: 0 0 28px;
+  color: #888;
+  font-size: 10.5px;
+}
+
+#wxch-helper-panel .wxch-val {
+  flex: 1;
+  word-break: break-all;
+  font-size: 10.5px;
+}
+
+#wxch-helper-panel .wxch-strong {
+  font-weight: 600;
+  font-size: 11.5px;
+}
+
+#wxch-helper-panel .wxch-btns {
+  display: flex;
+  gap: 4px;
+  margin-top: 5px;
+}
+
+#wxch-helper-panel .wxch-b {
+  flex: 1;
+  padding: 4px 2px;
+  font-size: 11px;
+  border: 1px solid #d5d5d5;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#wxch-helper-panel .wxch-b:hover {
+  background: #f0f0f0;
+}
+
+#wxch-helper-panel .wxch-primary {
+  background: #07c160;
+  border-color: #07c160;
+  color: #fff;
+  font-weight: 600;
+}
+
+#wxch-helper-panel .wxch-primary:hover {
+  background: #06ad56;
+}
+
+#wxch-helper-panel .wxch-ok {
+  background: #eef7f0;
+  border-color: #b7e0c4;
+  color: #07c160;
+}
+
+#wxch-helper-panel .wxch-status {
+  margin-top: 5px;
+  padding: 4px 6px;
+  background: #f7f7f7;
+  border-radius: 4px;
+  font-size: 10.5px;
+  color: #666;
+}
+
+#wxch-helper-panel .wxch-status.ok {
+  background: #eef7f0;
+  color: #07c160;
+}
+
+#wxch-helper-panel .wxch-status.err {
+  background: #fdeeee;
+  color: #d93025;
+}
+
+/* ===== 统计模块 v2.3.0 ===== */
+#wxch-helper-panel.wxch-stats-wide { width: 300px; }
+
+#wxch-helper-panel .wxch-stats {
+  margin-top: 6px;
+  border-top: 1px dashed #e5e5e5;
+  padding-top: 6px;
+}
+
+#wxch-helper-panel .wxch-stats-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+#wxch-helper-panel .wxch-stats-head span {
+  flex: 1;
+  font-weight: 600;
+  font-size: 11px;
+  color: #333;
+}
+
+/* 两个按钮并排：读取最新数据 / 同步飞书 */
+#wxch-helper-panel .wxch-stats-acts {
+  display: flex;
+  gap: 4px;
+  flex: none;
+}
+
+#wxch-helper-panel .wxch-stats-btn {
+  border: 1px solid #d5d5d5;
+  background: #fff;
+  border-radius: 3px;
+  font-size: 10px;
+  padding: 1px 6px;
+  cursor: pointer;
+  color: #666;
+  white-space: nowrap;
+}
+
+#wxch-helper-panel .wxch-stats-btn:hover { background: #f0f0f0; }
+
+#wxch-helper-panel .wxch-stats-btn.wxch-busy,
+#wxch-helper-panel .wxch-stats-btn:disabled {
+  color: #07c160;
+  border-color: #b7e5c9;
+  cursor: default;
+  background: #f4fdf7;
+}
+
+#wxch-helper-panel .wxch-stats-empty {
+  font-size: 10.5px;
+  color: #999;
+  padding: 4px 0;
+  text-align: center;
+}
+
+#wxch-helper-panel .wxch-stats-acc {
+  font-size: 10.5px;
+  color: #666;
+  margin: 4px 0 3px;
+  font-weight: 600;
+}
+
+#wxch-helper-panel .wxch-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
+}
+
+#wxch-helper-panel .wxch-stats-k {
+  background: #f7f8f9;
+  border-radius: 4px;
+  padding: 3px 5px;
+  text-align: center;
+}
+
+#wxch-helper-panel .wxch-stats-k span {
+  display: block;
+  font-size: 9.5px;
+  color: #999;
+}
+
+#wxch-helper-panel .wxch-stats-k b {
+  display: block;
+  font-size: 13px;
+  color: #222;
+}
+
+#wxch-helper-panel .wxch-stats-k b.wxch-hot {
+  color: #d93025;
+  font-weight: 700;
+}
+
+#wxch-helper-panel .wxch-stats-sub {
+  font-size: 10px;
+  color: #888;
+  margin: 5px 0 3px;
+}
+
+#wxch-helper-panel .wxch-stats-miss {
+  font-size: 9.5px;
+  color: #b26a00;
+  margin-top: 4px;
+  line-height: 1.35;
+}
+
+#wxch-helper-panel .wxch-stats-vlist {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+#wxch-helper-panel .wxch-stats-v {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 3px 0;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 10px;
+}
+
+#wxch-helper-panel .wxch-stats-v .t {
+  color: #333;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#wxch-helper-panel .wxch-stats-v .m {
+  color: #888;
+  font-variant-numeric: tabular-nums;
+}
+
+#wxch-helper-panel .wxch-stats-v .d {
+  color: #999;
+  font-variant-numeric: tabular-nums;
+}
